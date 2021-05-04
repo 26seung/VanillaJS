@@ -1,18 +1,11 @@
-const clockContainer = document.querySelector(".js-clock"),         // 클래스명이니  . 체크 주의
-    clockTitle = clockContainer.querySelector("h1");
+const title = document.querySelector("#title");
 
-function getTime() {
-    const date = new Date();
+const CLICKED_CLASS = "clicked";
 
-    const hour = date.getHours();
-    const minute = date.getMinutes();
-    const second = date.getSeconds();
-
-    clockTitle.innerText = `${hour}:${minute}:${second}`;
+function handleClick(){
+    title.classList.toggle(CLICKED_CLASS);
 }
-
-
 function init(){
-    getTime();
+    title.addEventListener("click", handleClick);
 }
 init();
