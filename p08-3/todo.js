@@ -67,5 +67,5 @@ part 2.>
 
  JSON.stringify()  -->  는 object 를  string 으로 바꾸어 줌
  forEach 는 기본적으로 함수를 실행 하는데 array 에 담겨 있는 것들을 각각에 한번씩 함수를 실행시켜 줌
-
+aasdasd
 */
