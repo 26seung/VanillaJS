@@ -22,3 +22,26 @@ h1 {
 .showing {
     display: block;
 }
+
+
+
+
+.bgImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    animation: fadeIn .5s linear;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
