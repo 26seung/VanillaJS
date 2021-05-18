@@ -3,8 +3,24 @@ const toDoForm = document.querySelector(".js-toDo"),
     toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
-const toDos = [];               //  배열값을 받을 상수 생성
 
+// function filterFn(toDo){
+//     return toDo.id === 1;
+// }
+
+let toDos = [];               //  배열값을 받을 상수 생성
+
+function deleteToDo(event){
+    const btn = event.target;
+    const li = btn.parentNode;
+    toDoList.removeChild(li);
+
+    const cleanToDos = toDos.filter(function(toDo){
+        return toDo.id !== parseInt(li.id);
+    });
+    toDos = cleanToDos;
+    saveToDos();
+}
 
 function saveToDos(){           // toDos 를 가져와서 로컬에 저장하는 함수
     localStorage.setItem(TODOS_LS, JSON.stringify(toDos));          // 그냥 사용시 object 형식으로 저장되어  --> JSON 을 통하여 string으로 저장
@@ -16,6 +32,7 @@ function paintToDo(text) {
     const span = document.createElement("span");
     const newId = toDos.length+1;                   // 아이디가 1부터 시작
     delBtn.innerText = "삭제";
+    delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     li.appendChild(span);
     li.appendChild(delBtn);
@@ -67,5 +84,9 @@ part 2.>
 
  JSON.stringify()  -->  는 object 를  string 으로 바꾸어 줌
  forEach 는 기본적으로 함수를 실행 하는데 array 에 담겨 있는 것들을 각각에 한번씩 함수를 실행시켜 줌
-aasdasd
+
+ 
+
+ foreach 문은 오직 array 객체에서 사용이 가능하다.
+ 
 */
